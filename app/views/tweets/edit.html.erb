@@ -1,0 +1,15 @@
+<%= form_for @tweet do |f| %>
+     <div class="field">
+    <%= f.label :商品名 %>
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+  <div class="field">
+  <%= f.label :詳細 %>
+  <%= f.text_field :about, :size => 30 %>
+</div>
+<div class="field">
+<%= f.label :値段  %>
+<%= f.number_field :price, :size => 10 %>
+</div>
+    <%= f.submit "編集する" %>
+  <% end %>

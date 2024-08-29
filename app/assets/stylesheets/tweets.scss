@@ -1,0 +1,66 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.toppage{
+    background-image: url('IMG_1001.JPG');
+    height: 900px;
+    background-size: cover;
+    }
+*{
+  margin: 0;
+  padding: 0;
+}
+.kennsaku{
+    text-align: center;
+    margin-top: 70px;
+}
+#search{
+    height: 60px;
+    width: 400px;
+}
+.blackboard-box{
+    background: #104300;
+    margin: 1em 0;
+    padding: 1em 1em 0 1em;
+    border: 8px solid #a60;
+    box-shadow: 2px 2px 4px #999, 2px 2px 2px #020 inset;
+    width: 500px;
+    margin-left: 80px;
+  }
+  
+  .blackboard-box p{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-shadow: 0px 0px 2px #fff;
+  }
+  
+  .chalk1{
+    display: block;
+    margin-top: 10px;
+    margin-left: 90%;
+    border: solid 3px #fff;
+    width: 15px;
+    height: 6px;
+    border-radius: 3px 2px 0 2px;
+  }
+  
+  .chalk2{
+    display: block;
+    margin-top: -6px;
+    margin-left: calc(90% - 30px);
+    border: solid 3px #ff69b4;
+    width: 20px;
+    height: 6px;
+    border-radius: 3px 2px 0 2px;
+  }
+  .tweet{
+    display: flex; 
+    flex-direction: column;
+  }
+  .page2{
+    display: flex; 
+    margin-left: 50px;
+    flex-wrap: wrap;
+  }
+  
