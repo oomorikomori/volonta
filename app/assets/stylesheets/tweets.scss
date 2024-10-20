@@ -1,66 +1,232 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.toppage{
-    background-image: url('IMG_1001.JPG');
-    height: 900px;
-    background-size: cover;
-    }
+
+.slideshow {
+  position: relative;
+  height: 900px;
+}
+
+.slideshow-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slideshow 9s infinite;
+  opacity: 0;
+}
+
+.slideshow-image:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slideshow-image:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.slideshow-image:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes slideshow {
+  0%    {opacity: 0; }
+  11.1% {opacity: 1; }
+  33.3% {opacity: 1; }
+  44.4% {opacity: 0; }
+  100%  {opacity: 0; }
+}
+
+.top-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 350px;
+  text-align: center;
+  z-index: 10;
+  font-family: "Hina Mincho", serif;
+  font-weight: 10;
+  font-style: normal;
+  font-style: normal;
+  color:white;
+}
+
 *{
   margin: 0;
   padding: 0;
 }
 .kennsaku{
-    text-align: center;
-    margin-top: 70px;
+  text-align: center;
+  margin-top: 70px;
 }
 #search{
-    height: 60px;
-    width: 400px;
+  height: 40px;
+  width: 400px;
 }
+
+.tweet{
+  display: flex; 
+  flex-direction: column;
+  margin-top: 30px;
+}
+.page1{
+  height: 60px;
+  background-color: #e5eeef;
+  width:75%;
+  margin-top: 50px;
+  margin-right: 30px;
+  margin-left: 150px;
+  padding-left: 120px;
+}
+.page1 p{
+  margin-left: 435px;
+  font-size: 30px;
+  padding-bottom: 160px;
+  padding-top: 40px;
+}
+.page2{
+  display: flex; 
+  flex-wrap: wrap;
+  margin-right: 30px;
+  margin-left: 150px;
+  background-color: #e5eeef;
+  width:75%;
+  padding-left: 120px;
+  padding-top: 50px;
+}
+
+.showcontents{
+  background-color: black;
+  color:white;
+  display: flex;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.showtitle{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  width:100%;
+  background-color:#9ccbcf;
+}
+
+.show-name{
+  font-size: 40px;
+}
+
+.tweet{
+  // padding-top: 150px;
+  padding-left:50px;
+  width: 50%;
+}
+
+.show-about{
+  font-size: 25px;
+}
+
+.showbtn{
+  display: flex;
+}
+
+.showbtn input {
+  width: 180px;
+  height: 40px;
+  font-size: 15px;
+  transition: all 0.3s ease; /* アニメーションを追加 */
+}
+
+.showbtn input:hover {
+  transform: scale(1.05); /* ボタンを1.05倍に拡大 */
+  background-color: #9ccbcf; /* 背景色を変更 */
+  color: white; /* テキスト色を変更（オプション） */
+}
+
 .blackboard-box{
-    background: #104300;
-    margin: 1em 0;
-    padding: 1em 1em 0 1em;
-    border: 8px solid #a60;
-    box-shadow: 2px 2px 4px #999, 2px 2px 2px #020 inset;
-    width: 500px;
-    margin-left: 80px;
-  }
-  
-  .blackboard-box p{
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    text-shadow: 0px 0px 2px #fff;
-  }
-  
-  .chalk1{
-    display: block;
-    margin-top: 10px;
-    margin-left: 90%;
-    border: solid 3px #fff;
-    width: 15px;
-    height: 6px;
-    border-radius: 3px 2px 0 2px;
-  }
-  
-  .chalk2{
-    display: block;
-    margin-top: -6px;
-    margin-left: calc(90% - 30px);
-    border: solid 3px #ff69b4;
-    width: 20px;
-    height: 6px;
-    border-radius: 3px 2px 0 2px;
-  }
-  .tweet{
-    display: flex; 
-    flex-direction: column;
-  }
-  .page2{
-    display: flex; 
-    margin-left: 50px;
-    flex-wrap: wrap;
-  }
-  
+  text-align: center;
+}
+.blackboard-box p{
+  width: 250px;
+  padding-bottom: 10px;
+}
+
+.tweet a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease; /* スムーズな変化のためのトランジション */
+}
+
+.tweet a:hover {
+  font-size: 1.05em;  /* ホバー時に文字サイズが1.05倍 */
+  color: #9ccbcf;  /* ホバー時に色を青に変更 */
+}
+
+/* 下線のアニメーション */
+.tweet a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #9ccbcf;
+  transition: width 0.3s ease;
+}
+
+.tweet a:hover::before {
+  width: 100%;  /* ホバー時に左から右にアンダーラインが伸びる */
+}
+
+.other-tweets {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-left: 130px;
+  margin-right: 130px;
+}
+.other-tweet {
+  text-align: center; /* テキストと画像を中央に揃える */
+}
+.other{
+  margin-top: 30px;
+  text-align: center;
+}
+
+
+.other_tweet_a a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease; /* スムーズな変化のためのトランジション */
+}
+
+.other_tweet_a a:hover {
+  font-size: 1.05em;  /* ホバー時に文字サイズが1.05倍 */
+  color: #9ccbcf;  /* ホバー時に色を青に変更 */
+}
+
+/* 下線のアニメーション */
+.other_tweet_a a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #9ccbcf;
+  transition: width 0.3s ease;
+}
+
+.other_tweet_a a:hover::before {
+  width: 100%;  /* ホバー時に左から右にアンダーラインが伸びる */
+}
+
+.kensaku input#search{
+}

@@ -8,13 +8,28 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
   </head>
+
   <body>
- <header>
-  
- </header>
- <main>
-  <%= yield %>
- </main>
-</body>
+    <header>
+      
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+    <% if user_signed_in? && current_user.id == 1 %>
+      <%= link_to "新規投稿",tweets_new_path %>
+    <% end %>
+    </footer>
+  </body>
 </html>

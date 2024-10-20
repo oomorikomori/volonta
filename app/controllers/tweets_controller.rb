@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     end
     def show
       @tweet = Tweet.find(params[:id])
-    end
+      @other_tweets = Tweet.where.not(id: @tweet.id).order("RANDOM()").limit(3)    end    
     def edit
       @tweet = Tweet.find(params[:id])
     end

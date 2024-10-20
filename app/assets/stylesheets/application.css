@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+body{
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-style: normal;
+}

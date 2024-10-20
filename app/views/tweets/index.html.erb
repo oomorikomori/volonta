@@ -1,27 +1,38 @@
-<div class="toppage">
-  volonta
+<div class="slideshow">
+  <div class="slideshow-image" style="background-image: url('<%= asset_path 'IMG_1124.JPG' %>');"></div>
+  <div class="slideshow-image" style="background-image: url('<%= asset_path 'IMG_1166.jpg' %>');"></div>
+  <div class="slideshow-image" style="background-image: url('<%= asset_path 'IMG_1164.jpg' %>');"></div>
+  <div class="top-block">volonta</div>
 </div>
-  <div class="kennsaku">
-    <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-      <%= text_field_tag :search %>
-    <% end %>
-  </div>
-  <div class="page2">
+<div class="kennsaku">
+  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+  <% end %>
+</div>
 
-<% @tweets.each do |t| %>
-  <div class="blackboard-box">
-    <div class="tweet">
-      <%= image_tag t.image_url, size: "250x200" if t.image? %>
-      <%= t.name %>
-      <%= t.about %>
-      <%= t.price %>
-      <%= link_to "詳細へ", tweet_path(t.id) %> 
-      <%= link_to "編集する", edit_tweet_path(t.id) %>
-      <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+<div class="page1">
+  <p>menu</p>
+</div>
+<div class="page2">
+  <% @tweets.each do |t| %>
+    <div class="blackboard-box">
+      <div class="tweet">
+        <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <p>
+          <%= t.name %>
+          <br>
+          ￥<%= t.price %>
+          <br>
+          <%= link_to "詳細", tweet_path(t.id) %> 
+          <br>
+          </p>
+        <% if user_signed_in? && current_user.id == 2 %>
+          <%= link_to "編集する", edit_tweet_path(t.id) %>
+          <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+        <% end %>
+      </div>
+      <div class="chalk1"></div>
+      <div class="chalk2"></div>    
     </div>
-    <div class="chalk1"></div>
-    <div class="chalk2"></div>    
-  </div>
-<% end %>
+  <% end %>
 </div>
-

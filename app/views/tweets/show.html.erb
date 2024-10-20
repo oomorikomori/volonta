@@ -1,10 +1,44 @@
-<h1>GeekTwitter</h1>
-<h3>Tweet詳細</h3>
-<div class="tweet">
-  <p><%= @tweet.name %></p>
-   <p><%= @tweet.about %></p>
-    <p><%= @tweet.price %></p>
-  <p><%= @tweet.created_at %></p>
+<div class="showpage">
+<p class="showtitle">Cuisine Details</p>
+  <div class="showcontents">
+    <div class="tweet">
+      <p class="show-name"><%= @tweet.name %></p>
+      <br>
+      <br>
+      <br>
+      <p class="show-about"><%= @tweet.about%></p>
+      <br>
+      <br>
+      <p class="show-about">￥<%= @tweet.price %></p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="showbtn">
+        <%= button_to "TOPに戻る", tweets_path %>
+        <% if user_signed_in? && current_user.id == 1 %>
+          <%= button_to "編集する", edit_tweet_path(@tweet.id) %>
+        <% end %>
+      </div>
+    </div>
+    <%= image_tag @tweet.image_url, size: "650x450" if @tweet.image? %> 
+  </div>
+  <!-- ここに他の投稿を表示 -->
+  <div class="other">
+    <h2>その他のおすすめ</h2>
+  </div>
+
+  <div class="other-tweets">
+  <% @other_tweets.each do |other_tweet| %>
+    <div class="other-tweet">
+      <%= link_to tweet_path(other_tweet.id) do %>
+        <%= image_tag other_tweet.image_url, size: "180x130" if other_tweet.image? %>
+      <% end %>
+      <br>
+      <div class="other_tweet_a">
+        <%= link_to other_tweet.name, tweet_path(other_tweet.id) %>
+      </div>
+      <p>￥<%= other_tweet.price %></p>
+    </div>
+  <% end %>
 </div>
-<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
-<%= link_to "Tweet一覧に戻る", tweets_path %>
